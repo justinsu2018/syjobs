@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Construction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #countdown {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #d9534f;
+        }
+
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🚧 Website Under Construction 🚧</h1>
+        <p>We are working hard to bring you a better experience. Stay tuned!</p>
+        <p id="countdown">Launching in: <span id="timer"></span></p>
+    </div>
+
+    <footer>
+        © 2025 SYSU. All rights reserved.
+    </footer>
+
+    <script>
+        function startCountdown(durationInSeconds) {
+            let timerElement = document.getElementById("timer");
+            let timeRemaining = durationInSeconds;
+
+            function updateTimer() {
+                let days = Math.floor(timeRemaining / (60 * 60 * 24));
+                let hours = Math.floor((timeRemaining % (60 * 60 * 24)) / (60 * 60));
+                let minutes = Math.floor((timeRemaining % (60 * 60)) / 60);
+                let seconds = timeRemaining % 60;
+
+                timerElement.innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                
+                if (timeRemaining > 0) {
+                    timeRemaining--;
+                    setTimeout(updateTimer, 1000);
+                } else {
+                    timerElement.innerText = "We're live!";
+                }
+            }
+            
+            updateTimer();
+        }
+
+        startCountdown(7 * 24 * 60 * 60); // Set to 7 days
+    </script>
+
+</body>
+</html>
